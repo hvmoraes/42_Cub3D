@@ -26,8 +26,8 @@
 int		message(char *message);
 int		parse(int argc, char **argv);
 
-int		init_floor(char *line);
-int		init_ceiling(char *line);
+void		init_floor(char *line, int *error);
+void		init_ceiling(char *line, int *error);
 int		init_map(char *line, int fd);
 
 void	run(void);
@@ -40,5 +40,7 @@ int		east(char *line);
 char	*remove_el(char *line);
 
 int		array_size(char **array);
+
+t_rgb	check_color(char *color, int *error);
 
 t_data	*data(void);

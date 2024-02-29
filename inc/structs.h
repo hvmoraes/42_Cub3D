@@ -12,6 +12,12 @@
 
 #pragma once
 
+typedef struct s_rgb {
+	int	r;
+	int	g;
+	int	b;
+}	t_rgb;
+
 typedef struct s_mlx {
 	void			*mlx;
 	void			*win;
@@ -32,5 +38,8 @@ typedef struct s_textures {
 typedef struct s_data {
 	t_mlx	mlx;
 	t_textures	textures;
+	t_rgb floor;
+	t_rgb	ceiling;
 	int	init_map;
+	char	**map;
 }	t_data;

@@ -25,11 +25,11 @@ int	format(char *line)
 		&& line[ft_strlen(line) - 3] != 'p' && line[ft_strlen(line) - 4] != 'x')
 		return (message("Error\nInvalid texture name\n"));
 	fd = open(line, O_RDONLY);
-	if (fd == -1)
+	/*if (fd == -1)
 	{
 		close(fd);
 		return (message("Error\nCannot open texture file\n"));
-	}
+	}*/
 	close(fd);
 	return(SUCCESS);
 }

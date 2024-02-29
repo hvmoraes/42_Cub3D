@@ -46,23 +46,23 @@ int	map_details(char *map)
 	error = 0;
 	while(line)
 	{
-		printf("%s\n", line);
-		if (ft_strncmp(line, "NO", 2) == 0)
+		//printf("%s\n", line);
+		if (ft_strncmp(line, "NO ", 3) == 0)
 			error += north(line);
-		else if (ft_strncmp(line, "SO", 2) == 0)
+		else if (ft_strncmp(line, "SO ", 3) == 0)
 			error += south(line);
-		else if (ft_strncmp(line, "WE", 2) == 0)
+		else if (ft_strncmp(line, "WE ", 3) == 0)
 			error += west(line);
-		else if (ft_strncmp(line, "EA", 2) == 0)
+		else if (ft_strncmp(line, "EA ", 3) == 0)
 			error += east(line);
-		else if (ft_strncmp(line, "F", 1) == 0)
-			error += init_floor(line);
-		else if (ft_strncmp(line, "C", 1) == 0)
-			error += init_ceiling(line);
-		else if (ft_strncmp(line, "1", 1) == 0)
+		else if (ft_strncmp(line, "F ", 2) == 0)
+			init_floor(line, &error);
+		else if (ft_strncmp(line, "C ", 2) == 0)
+			init_ceiling(line, &error);
+		else if (ft_strchr(line, '1') == 0)
 			error += init_map(line, fd);
-		else
-			error += message("Error\nInvalid character found\n");
+		/*else
+			error += message("Error\nInvalid character found\n");*/
 		line = get_next_line(fd);
 	}
 	return(error);
