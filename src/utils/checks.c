@@ -51,7 +51,6 @@ t_rgb	check_color(char *color, int *error)
 		final_color.r = ft_atoi(color_vec[0]);
 		final_color.g = ft_atoi(color_vec[1]);
 		final_color.b = ft_atoi(color_vec[2]);
-		//printf("%i\n", *error);
 		//free_array(color_vec);
 		final_color = color_overflow(final_color);
 	}

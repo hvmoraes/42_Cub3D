@@ -6,63 +6,61 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:43:04 by hcorrea-          #+#    #+#             */
-/*   Updated: 2024/02/29 10:14:01 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/01 10:41:36 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-static	int	nl_index(char *stash)
+static int nl_index(char *stash)
 {
-	int	i;
-
-	i = 0;
+	int i = 0;
 	while (stash[i])
 	{
-		if (stash[i] == '\n')
-			return (i);
+		if (stash[i] == '\n' || stash[i] == '\r')
+			return i;
 		i++;
 	}
-	return (0);
+	return 0;
 }
 
-static char	*cleanup_crew(char **stash)
+static char *cleanup_crew(char **stash)
 {
 	char	*line;
 	char	*temp;
 	int		i;
 
 	if (!*stash || **stash == '\0')
-		return (NULL);
+		return NULL;
 	i = nl_index(*stash);
-	if (ft_strchr(*stash, '\n'))
+	if (ft_strchr(*stash, '\n') || ft_strchr(*stash, '\r'))
 	{
-		line = ft_substr(*stash, 0, i + 1);
+		line = ft_substr(*stash, 0, i);
 		temp = ft_substr(*stash, i + 1, ft_strlen(*stash) - i - 1);
 		free(*stash);
 		*stash = temp;
 		if (**stash != '\0')
-			return (line);
+			return line;
 	}
 	else
 		line = ft_strdup(*stash);
 	free(*stash);
 	*stash = NULL;
-	return (line);
+	return line;
 }
 
-char	*get_next_line(int fd)
+char *get_next_line(int fd)
 {
-	int			readchard;
-	char		*buff;
-	char		*temp;
+	int		readchard;
+	char	*buff;
+	char	*temp;
 	static char	*stash[FOPEN_MAX];
 
-	if (fd < 0 || fd > FOPEN_MAX || BUFFER_SIZE <= 0)
-		return (NULL);
+	if (fd < 0 || fd >= FOPEN_MAX || BUFFER_SIZE <= 0)
+		return NULL;
 	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buff)
-		return (NULL);
+		return NULL;
 	readchard = read(fd, buff, BUFFER_SIZE);
 	while (readchard > 0)
 	{
@@ -76,6 +74,7 @@ char	*get_next_line(int fd)
 			break ;
 		readchard = read(fd, buff, BUFFER_SIZE);
 	}
+
 	free(buff);
 	return (cleanup_crew(&stash[fd]));
 }

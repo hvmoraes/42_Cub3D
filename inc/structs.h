@@ -35,11 +35,24 @@ typedef struct s_textures {
 	char	*east;
 }	t_textures;
 
+typedef struct s_player {
+	char	initial_dir;
+	float	dir;
+} t_player;
+
 typedef struct s_data {
 	t_mlx	mlx;
 	t_textures	textures;
 	t_rgb floor;
 	t_rgb	ceiling;
-	int	init_map;
+	int	ceiling_cnt;
+	int	floor_cnt;
+	int	north_cnt;
+	int	south_cnt;
+	int west_cnt;
+	int	east_cnt;
+	int	map_cnt;
+	int	player_cnt;
 	char	**map;
+	t_player	player;
 }	t_data;

@@ -15,21 +15,16 @@
 int	format(char *line)
 {
 	int	fd;
-	//char	**fuck;
 
-	//line = remove_el(line);
-	//fuck = ft_split(line, '\n');
-	//printf("FDSSS\n.%s.\nFDSSS", fuck[0]);
-	//printf("\nIMAGINA %s.\n", line);
-	if (line[ft_strlen(line) - 1] != '\n' && line[ft_strlen(line) - 2] != 'm'
-		&& line[ft_strlen(line) - 3] != 'p' && line[ft_strlen(line) - 4] != 'x')
+	if (line[ft_strlen(line) - 1] != 'm'
+		&& line[ft_strlen(line) - 2] != 'p' && line[ft_strlen(line) - 3] != 'x')
 		return (message("Error\nInvalid texture name\n"));
 	fd = open(line, O_RDONLY);
-	/*if (fd == -1)
+	if (fd == -1)
 	{
 		close(fd);
 		return (message("Error\nCannot open texture file\n"));
-	}*/
+	}
 	close(fd);
 	return(SUCCESS);
 }
@@ -38,9 +33,10 @@ int	north(char *line)
 {
 	char **texture;
 
+	if (data()->north_cnt)
+		return (message("Error\nOnly one north texture allowed"));
+	data()->north_cnt = 1;
 	texture = ft_split(line, ' ');
-	if (data()->init_map == 1)
-		return (message("Error\nMap has to be the last thing in the file\n"));
 	if (array_size(texture) != 2)
 		return (message("Error\nInvalid texture line arguments count\n"));
 	if (!format(texture[1]))
@@ -53,9 +49,10 @@ int	south(char *line)
 {
 	char **texture;
 
+	if (data()->south_cnt)
+		return (message("Error\nOnly one south texture allowed"));
+	data()->south_cnt = 1;
 	texture = ft_split(line, ' ');
-	if (data()->init_map == 1)
-		return (message("Error\nMap has to be the last thing in the file\n"));
 	if (array_size(texture) != 2)
 		return (message("Error\nInvalid texture line arguments count\n"));
 	if (!format(texture[1]))
@@ -68,9 +65,10 @@ int	west(char *line)
 {
 	char **texture;
 
+	if (data()->west_cnt)
+		return (message("Error\nOnly one west texture allowed"));
+	data()->west_cnt = 1;
 	texture = ft_split(line, ' ');
-	if (data()->init_map == 1)
-		return (message("Error\nMap has to be the last thing in the file\n"));
 	if (array_size(texture) != 2)
 		return (message("Error\nInvalid texture line arguments count\n"));
 	if (!format(texture[1]))
@@ -83,9 +81,10 @@ int	east(char *line)
 {
 	char **texture;
 
+	if (data()->east_cnt)
+		return (message("Error\nOnly one east texture allowed"));
+	data()->east_cnt = 1;
 	texture = ft_split(line, ' ');
-	if (data()->init_map == 1)
-		return (message("Error\nMap has to be the last thing in the file\n"));
 	if (array_size(texture) != 2)
 		return (message("Error\nInvalid texture line arguments count\n"));
 	if (!format(texture[1]))
