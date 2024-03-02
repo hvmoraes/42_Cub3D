@@ -55,19 +55,19 @@ int	map_details(char *map)
 	error = 0;
 	while(line)
 	{
-		if (ft_strncmp(line, "NO ", 3) == 0)
+		if (!ft_strncmp(line, "NO ", 3))
 			error += north(line);
-		else if (ft_strncmp(line, "SO ", 3) == 0)
+		else if (!ft_strncmp(line, "SO ", 3))
 			error += south(line);
-		else if (ft_strncmp(line, "WE ", 3) == 0)
+		else if (!ft_strncmp(line, "WE ", 3))
 			error += west(line);
-		else if (ft_strncmp(line, "EA ", 3) == 0)
+		else if (!ft_strncmp(line, "EA ", 3))
 			error += east(line);
-		else if (ft_strncmp(line, "F ", 2) == 0)
+		else if (!ft_strncmp(line, "F ", 2))
 			init_floor(line, &error);
-		else if (ft_strncmp(line, "C ", 2) == 0)
+		else if (!ft_strncmp(line, "C ", 2))
 			init_ceiling(line, &error);
-		else if (ft_strchr(line, '1') != 0)
+		else if (ft_strchr(line, '1'))
 		{
 			error += init_map(line, fd);
 			close(fd);
@@ -97,9 +97,9 @@ int	parse(int argc, char **argv)
 	(void)argv;
 	if (argc != 2)
 		return (message("Error\nWrong argument count\n"));
-	if (!map_name(argv[1]))
+	if (map_name(argv[1]))
 		return (message("Error\nInvalid map passed\n"));
-	if (!map_details(argv[1]))
+	if (map_details(argv[1]))
 		return (FAILURE);
 	return (SUCCESS);
 }

@@ -20,12 +20,18 @@ void	init_floor(char *line, int *error)
 
 	if (data()->floor_cnt)
 	{
-		*error += message("Error\nOnly one north texture allowed");
+		*error += message("Error\nOnly one Floor config allowed");
 		return ;
 	}
 	data()->floor_cnt = 1;
 	old_error = *error;
 	floor_line = ft_split(line, ' ');
+	if (array_size(floor_line) != 2)
+	{
+		*error += message("Error\nInvalid Floor config\n");
+		free_array(floor_line);
+		return ;
+	}
 	rgb = check_color(floor_line[1], error);
 	free_array(floor_line);
 	data()->floor.r = rgb.r;
@@ -43,12 +49,18 @@ void	init_ceiling(char *line, int *error)
 
 	if (data()->ceiling_cnt)
 	{
-		*error += message("Error\nOnly one north texture allowed");
+		*error += message("Error\nOnly one Floor config allowed");
 		return ;
 	}
 	data()->ceiling_cnt = 1;
 	old_error = *error;
 	ceiling_line = ft_split(line, ' ');
+	if (array_size(ceiling_line) != 2)
+	{
+		*error += message("Error\nInvalid Ceiling config\n");
+		free_array(ceiling_line);
+		return ;
+	}
 	rgb = check_color(ceiling_line[1], error);
 	free_array(ceiling_line);
 	data()->ceiling.r = rgb.r;
@@ -91,22 +103,25 @@ int	verify_map()
 		{
 			while (data()->map[i][j] == ' ' || data()->map[i][j] == '\t')
 				j++;
-			if (data()->map[i][j] == '0')
+			if (data()->map[i][j] == '0' || data()->map[i][j] == 'N' || data()->map[i][j] == 'S'
+				|| data()->map[i][j] == 'E' || data()->map[i][j] == 'W')
 			{
 				if (data()->map[i][j + 1] == ' ' || data()->map[i][j - 1] == ' '
 					|| data()->map[i + 1][j] == ' ' || data()->map[i - 1][j] == ' '
 					|| data()->map[i + 1][j + 1] == ' ' || data()->map[i + 1][j - 1] == ' '
 					|| data()->map[i - 1][j + 1] == ' ' || data()->map[i - 1][j - 1] == ' ')
 					return (message("Error\nMap not closed\n"));
-			}
-			if (data()->map[i][j] == 'N' || data()->map[i][j] == 'S'
-				|| data()->map[i][j] == 'E' || data()->map[i][j] == 'W')
-			{
-				data()->player_cnt = 1;
-				data()->player.initial_dir = data()->map[i][j];
-				data()->player.pos.x = i;
-				data()->player.pos.y = j;
-				//printf("%c\n", data()->player.initial_dir);
+				if (data()->map[i][j] == 'N' || data()->map[i][j] == 'S'
+					|| data()->map[i][j] == 'E' || data()->map[i][j] == 'W')
+				{
+					if (data()->player_cnt)
+						return (message("Error\nOnly one player start position allowed\n"));
+					data()->player_cnt++;
+					data()->player.initial_dir = data()->map[i][j];
+					data()->player.pos.x = i;
+					data()->player.pos.y = j;
+					//printf("%c\n", data()->player.initial_dir);
+				}
 			}
 			//printf("%c", data()->map[i][j]);
 			j++;
@@ -142,9 +157,9 @@ int	init_map(char *line, int fd)
 	{
 		//printf("%s\n", line);
 		//printf("%s %s\n", ft_strchr(line, '1'), ft_strchr(line, '0'));
-		if (!valid_map_line(line))
+		if (valid_map_line(line))
 			return (message("Error\nInvalid character found\n"));
-		if (ft_strchr(line, '1') != 0 || ft_strchr(line, '0') != 0)
+		if (ft_strchr(line, '1') || ft_strchr(line, '0'))
 		{
 			//printf("PUTA Q PARIU\n");
 			data()->map[i] = ft_strdup(line);

@@ -34,12 +34,12 @@ int	north(char *line)
 	char **texture;
 
 	if (data()->north_cnt)
-		return (message("Error\nOnly one north texture allowed"));
+		return (message("Error\nOnly one north texture allowed\n"));
 	data()->north_cnt = 1;
 	texture = ft_split(line, ' ');
 	if (array_size(texture) != 2)
 		return (message("Error\nInvalid texture line arguments count\n"));
-	if (!format(texture[1]))
+	if (format(texture[1]) != 0)
 		return (FAILURE);
 	data()->textures.north = texture[1];
 	free_array(texture);
@@ -51,12 +51,12 @@ int	south(char *line)
 	char **texture;
 
 	if (data()->south_cnt)
-		return (message("Error\nOnly one south texture allowed"));
+		return (message("Error\nOnly one south texture allowed\n"));
 	data()->south_cnt = 1;
 	texture = ft_split(line, ' ');
 	if (array_size(texture) != 2)
 		return (message("Error\nInvalid texture line arguments count\n"));
-	if (!format(texture[1]))
+	if (format(texture[1]))
 		return (FAILURE);
 	data()->textures.south = texture[1];
 	free_array(texture);
@@ -68,12 +68,12 @@ int	west(char *line)
 	char **texture;
 
 	if (data()->west_cnt)
-		return (message("Error\nOnly one west texture allowed"));
+		return (message("Error\nOnly one west texture allowed\n"));
 	data()->west_cnt = 1;
 	texture = ft_split(line, ' ');
 	if (array_size(texture) != 2)
 		return (message("Error\nInvalid texture line arguments count\n"));
-	if (!format(texture[1]))
+	if (format(texture[1]))
 		return (FAILURE);
 	data()->textures.west = texture[1];
 	free_array(texture);
@@ -85,12 +85,12 @@ int	east(char *line)
 	char **texture;
 
 	if (data()->east_cnt)
-		return (message("Error\nOnly one east texture allowed"));
+		return (message("Error\nOnly one east texture allowed\n"));
 	data()->east_cnt = 1;
 	texture = ft_split(line, ' ');
 	if (array_size(texture) != 2)
 		return (message("Error\nInvalid texture line arguments count\n"));
-	if (!format(texture[1]))
+	if (format(texture[1]))
 		return (FAILURE);
 	data()->textures.east = texture[1];
 	free_array(texture);

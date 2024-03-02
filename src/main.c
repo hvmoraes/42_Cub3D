@@ -14,12 +14,12 @@
 
 int	main(int argc, char **argv)
 {
-	if (!parse(argc, argv))
+	if (parse(argc, argv))
 	{
 		free_parser();
 		return (FAILURE);
 	}
-	run();
-	
+	else
+		run();
 	return (SUCCESS);
 }

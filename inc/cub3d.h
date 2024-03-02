@@ -20,8 +20,8 @@
 # include "../Libft/inc/libft.h"
 # include "structs.h"
 
-# define SUCCESS 1
-# define FAILURE 0
+# define SUCCESS 0
+# define FAILURE 1
 # define WIDTH 960
 # define HEIGHT 540
 
