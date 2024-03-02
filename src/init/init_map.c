@@ -27,6 +27,7 @@ void	init_floor(char *line, int *error)
 	old_error = *error;
 	floor_line = ft_split(line, ' ');
 	rgb = check_color(floor_line[1], error);
+	free_array(floor_line);
 	data()->floor.r = rgb.r;
 	data()->floor.g = rgb.g;
 	data()->floor.b = rgb.b;
@@ -49,6 +50,7 @@ void	init_ceiling(char *line, int *error)
 	old_error = *error;
 	ceiling_line = ft_split(line, ' ');
 	rgb = check_color(ceiling_line[1], error);
+	free_array(ceiling_line);
 	data()->ceiling.r = rgb.r;
 	data()->ceiling.g = rgb.g;
 	data()->ceiling.b = rgb.b;
@@ -102,6 +104,8 @@ int	verify_map()
 			{
 				data()->player_cnt = 1;
 				data()->player.initial_dir = data()->map[i][j];
+				data()->player.pos.x = i;
+				data()->player.pos.y = j;
 				//printf("%c\n", data()->player.initial_dir);
 			}
 			//printf("%c", data()->map[i][j]);
@@ -132,7 +136,6 @@ int	init_map(char *line, int fd)
 {
 	int	i;
 
-	data()->map = malloc(1000);
 	i = 0;
 	data()->map_cnt = 1;
 	while (line)
@@ -152,6 +155,7 @@ int	init_map(char *line, int fd)
 			return (message("Error\nInvalid map\n"));
 		line = get_next_line(fd);
 	}
+	data()->map[i] = NULL;
 	/*for (int j = 0; data()->map[j]; j++)
 		printf("%s\n", data()->map[j]);*/
 	return (verify_map());

@@ -93,6 +93,7 @@ int	parse(int argc, char **argv)
 	data()->east_cnt = 0;
 	data()->map_cnt = 0;
 	data()->player_cnt = 0;
+	data()->map = malloc(1000);
 	(void)argv;
 	if (argc != 2)
 		return (message("Error\nWrong argument count\n"));

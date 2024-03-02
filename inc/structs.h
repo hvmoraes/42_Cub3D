@@ -18,6 +18,11 @@ typedef struct s_rgb {
 	int	b;
 }	t_rgb;
 
+typedef struct s_pos {
+	float	x;
+	float	y;
+}	t_pos;
+
 typedef struct s_mlx {
 	void			*mlx;
 	void			*win;
@@ -38,13 +43,16 @@ typedef struct s_textures {
 typedef struct s_player {
 	char	initial_dir;
 	float	dir;
+	t_pos	pos;
 } t_player;
 
 typedef struct s_data {
-	t_mlx	mlx;
+	t_mlx	*mlx;
 	t_textures	textures;
 	t_rgb floor;
 	t_rgb	ceiling;
+	t_player	player;
+	char	**map;
 	int	ceiling_cnt;
 	int	floor_cnt;
 	int	north_cnt;
@@ -53,6 +61,4 @@ typedef struct s_data {
 	int	east_cnt;
 	int	map_cnt;
 	int	player_cnt;
-	char	**map;
-	t_player	player;
 }	t_data;

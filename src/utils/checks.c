@@ -43,7 +43,7 @@ t_rgb	check_color(char *color, int *error)
 			*error += 1;
 		i++;
 	}
-	color_vec = ft_split(color, ',');
+	color_vec = ft_split(color, ','); 
 	if (array_size(color_vec) != 3)
 		*error += 1;
 	else
@@ -51,7 +51,7 @@ t_rgb	check_color(char *color, int *error)
 		final_color.r = ft_atoi(color_vec[0]);
 		final_color.g = ft_atoi(color_vec[1]);
 		final_color.b = ft_atoi(color_vec[2]);
-		//free_array(color_vec);
+		free_array(color_vec);
 		final_color = color_overflow(final_color);
 	}
 	return (final_color);

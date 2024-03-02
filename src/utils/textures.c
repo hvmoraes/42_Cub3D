@@ -42,6 +42,7 @@ int	north(char *line)
 	if (!format(texture[1]))
 		return (FAILURE);
 	data()->textures.north = texture[1];
+	free_array(texture);
 	return (SUCCESS);
 }
 
@@ -58,6 +59,7 @@ int	south(char *line)
 	if (!format(texture[1]))
 		return (FAILURE);
 	data()->textures.south = texture[1];
+	free_array(texture);
 	return (SUCCESS);
 }
 
@@ -74,6 +76,7 @@ int	west(char *line)
 	if (!format(texture[1]))
 		return (FAILURE);
 	data()->textures.west = texture[1];
+	free_array(texture);
 	return (SUCCESS);
 }
 
@@ -90,5 +93,6 @@ int	east(char *line)
 	if (!format(texture[1]))
 		return (FAILURE);
 	data()->textures.east = texture[1];
+	free_array(texture);
 	return (SUCCESS);
 }
