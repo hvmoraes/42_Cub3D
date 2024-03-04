@@ -24,6 +24,14 @@
 # define FAILURE 1
 # define WIDTH 960
 # define HEIGHT 540
+# define INF 2147483647
+# define BLACK 0
+# define WHITE 16777215
+# define RED 16711680
+# define BLUE 255
+# define GREEN 65280
+# define YELLOW 16776960
+# define FOV 53
 
 int		message(char *message);
 int		parse(int argc, char **argv);

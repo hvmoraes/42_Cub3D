@@ -39,6 +39,7 @@ void	free_mlx(void)
 
 void	free_all(void)
 {
+	free_parser();
 	free(data()->mlx->mlx);
 	free(data()->mlx);
 }

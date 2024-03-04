@@ -41,9 +41,9 @@ typedef struct s_textures {
 }	t_textures;
 
 typedef struct s_player {
-	char	initial_dir;
-	float	dir;
+	t_pos	dir;
 	t_pos	pos;
+	float	floatDir;
 } t_player;
 
 typedef struct s_data {

@@ -86,6 +86,21 @@ int	verify_top_bottom(int i)
 	return (0);
 }
 
+void	calculate_dir(char p)
+{
+	if (p == 'N')
+		data()->player.floatDir = 0.0;
+	else if (p == 'S')
+		data()->player.floatDir = M_PI;
+	else if (p == 'E')
+		data()->player.floatDir = M_PI / 2.0;
+	else if (p == 'W')
+		data()->player.floatDir = 3 * M_PI / 2;
+	data()->player.dir.x = cos(data()->player.floatDir) * 5;
+	data()->player.dir.y = sin(data()->player.floatDir) * 5;
+	printf("dir x %f y %f\n", data()->player.dir.x, data()->player.dir.y);
+}
+
 int	verify_map()
 {
 	int	i;
@@ -117,9 +132,9 @@ int	verify_map()
 					if (data()->player_cnt)
 						return (message("Error\nOnly one player start position allowed\n"));
 					data()->player_cnt++;
-					data()->player.initial_dir = data()->map[i][j];
 					data()->player.pos.x = i;
 					data()->player.pos.y = j;
+					calculate_dir(data()->map[i][j]);
 					//printf("%c\n", data()->player.initial_dir);
 				}
 			}
