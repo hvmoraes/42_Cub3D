@@ -51,27 +51,6 @@ void draw_line(int x0, int y0, int x1, int y1, int color)
     }
 }
 
-void	drawRays()
-{
-	int r, mx, my, mp, dof; float rx, ry, ra, xo, yo;
-	ra = data()->player.floatDir;
-	for (r = 0; r < 1; r++)
-	{
-		dof = 0;
-		float aTan = -1 / tan(ra);
-		if (ra > M_PI) { ry = (((int)data()->player.pos.y >> 6) << 6) - 0.0001; rx = (data()->player.pos.y - ry) * aTan + data()->player.pos.x; yo = -64; xo = -yo * aTan;}
-		if (ra < M_PI) { ry = (((int)data()->player.pos.y >> 6) << 6) + 64; rx = (data()->player.pos.y - ry) * aTan + data()->player.pos.x; yo = -64; xo = -yo * aTan;}
-		if (ra == 0 || ra == M_PI ) { rx = data()->player.pos.x; ry = data()->player.pos.y; dof = 8;}
-		while (dof < 8)
-		{
-			mx = (int) (rx) >> 6; my = (int) (ry) >> 6; mp = my * HEIGHT + mx;
-			if (mp < HEIGHT * WIDTH && data()->map[mx][my] == '1') { dof = 8;}
-			else { rx += xo; ry += yo; dof += 1;}
-		}
-		draw_line(data()->player.pos.x * 8, data()->player.pos.y * 8, rx, ry, RED);
-	}
-}
-
 void	put_square(int y, int x, int size, int color)
 {
 	int end_x;
@@ -91,6 +70,54 @@ void	put_square(int y, int x, int size, int color)
 			j++;
 		}
 		i++;
+	}
+}
+
+void	drawRays()
+{
+	int r, mx, my, mp, dof; float rx, ry, ra, xo, yo;
+	ra = data()->player.floatDir;
+	for (r = 0; r < 1; r++)
+	{
+		dof = 0;
+		float aTan = -1 / tan(ra);
+		if (ra > M_PI)
+		{
+			ry = (((int)(data()->player.pos.y) >> 6) << 6) - 0.0001;
+			rx = (data()->player.pos.y - ry) * aTan + data()->player.pos.x;
+			yo = -64;
+			xo = -yo * aTan;
+		}
+		if (ra < M_PI)
+		{
+			ry = (((int)(data()->player.pos.y) >> 6) << 6) + 64;
+			rx = (data()->player.pos.y - ry) * aTan + data()->player.pos.x;
+			yo = -64;
+			xo = -yo * aTan;
+		}
+		if (ra == 0 || ra == M_PI )
+		{
+			rx = data()->player.pos.x;
+			ry = data()->player.pos.y;
+			dof = 8;
+		}
+		while (dof < 8)
+		{
+			mx = (int)(rx)>>6; my = (int)(ry)>>6; mp = my * HEIGHT + mx;
+			printf("x = %i rx %i y = %i mp = %i\n", mx, (int)rx, my, mp);
+			if (my >= 0 && my < 8 && mx >= 0 && mx < 8)
+			{
+				if (mp < HEIGHT * WIDTH && data()->map[my][mx] == '1')
+					dof = 8;
+			}
+			else
+			{
+				rx += xo;
+				ry += yo;
+				dof += 1;
+			}
+		}
+		draw_line(data()->player.pos.y * 64 + 4, data()->player.pos.x * 64 + 4, rx * 64, ry * 64, RED);
 	}
 }
 
@@ -156,7 +183,8 @@ int	valid_move(int keycode)
 
 int	key_hooks(int keycode)
 {
-	printf("dir x %f y %f\n", data()->player.dir.x, data()->player.dir.y);
+	printf("Before: floatDir = %f, dir.x = %f, dir.y = %f\n", data()->player.floatDir, data()->player.dir.x, data()->player.dir.y);
+
 	if (keycode == 65307)
 		close_window();
 	else if (keycode == 119 && !valid_move(keycode))
@@ -183,6 +211,7 @@ int	key_hooks(int keycode)
 		data()->player.dir.x = cos(data()->player.floatDir) * 5;
 		data()->player.dir.y = sin(data()->player.floatDir) * 5;
 	}
+	printf("After: floatDir = %f, dir.x = %f, dir.y = %f\n", data()->player.floatDir, data()->player.dir.x, data()->player.dir.y);
 	//printf("keycode = %i\n", keycode);
 	return (SUCCESS);
 }
