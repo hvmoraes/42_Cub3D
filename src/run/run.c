@@ -155,11 +155,11 @@ void	drawRays()
 	float hx;
 	float hy;
 
-	angle = data()->player.floatDir + DR * 30;
+	angle = data()->player.floatDir + 30 * DR;
 	disH = 10000;
 	hx = data()->player.pos.x;
 	hy = data()->player.pos.y;
-	for (int i = 0; i < 60; i++)
+	for (int i = 0; i < 360; i++)
 	{
 		/*    HORIZONTAL    */
 		d = 0;

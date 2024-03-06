@@ -33,6 +33,7 @@
 # define YELLOW 16776960
 # define FOV 53
 # define DR 0.0174532925
+# define TILES 64
 
 int		message(char *message);
 int		parse(int argc, char **argv);
