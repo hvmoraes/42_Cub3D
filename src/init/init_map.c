@@ -88,17 +88,17 @@ int	verify_top_bottom(int i)
 
 void	calculate_dir(char p)
 {
-	if (p == 'N')
+	if (p == 'E')
 		data()->player.floatDir = 0.0;
-	else if (p == 'S')
-		data()->player.floatDir = M_PI;
-	else if (p == 'E')
-		data()->player.floatDir = M_PI / 2.0;
 	else if (p == 'W')
+		data()->player.floatDir = M_PI;
+	else if (p == 'N')
+		data()->player.floatDir = M_PI / 2.0;
+	else if (p == 'S')
 		data()->player.floatDir = 3 * M_PI / 2;
-	data()->player.dir.x = cos(data()->player.floatDir) * 5;
-	data()->player.dir.y = sin(data()->player.floatDir) * 5;
-	printf("dir x %f y %f\n", data()->player.dir.x, data()->player.dir.y);
+	data()->player.dir.y = cos(data()->player.floatDir);
+	data()->player.dir.x = -sin(data()->player.floatDir);
+	//printf("dir x %f y %f\n", data()->player.dir.x, data()->player.dir.y);
 }
 
 int	verify_map()
