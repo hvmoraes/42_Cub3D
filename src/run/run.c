@@ -151,14 +151,14 @@ void	drawRays()
 	int	step;
 	int	top;
 	int	d = 0;
-	float disH;
-	float hx;
-	float hy;
+	//float disH;
+	//float hx;
+	//float hy;
 
 	angle = data()->player.floatDir + 30 * DR;
-	disH = 10000;
-	hx = data()->player.pos.x;
-	hy = data()->player.pos.y;
+	//disH = 10000;
+	//hx = data()->player.pos.x;
+	//hy = data()->player.pos.y;
 	for (int i = 0; i < 360; i++)
 	{
 		/*    HORIZONTAL    */
@@ -183,12 +183,12 @@ void	drawRays()
 			ray.y = data()->player.pos.y;
 			d = 8;
 		}
-		//printf("dir x %f y %f\n", data()->player.dir.x, data()->player.dir.y);
-		//printf("player x = %f y = %f\n", data()->player.pos.x, data()->player.pos.y);
-		//printf("ray x = %f y = %f\n", ray.x, ray.y);
+		printf("dir x %f y %f\n", data()->player.dir.x, data()->player.dir.y);
+		printf("player x = %f y = %f\n", data()->player.pos.x, data()->player.pos.y);
+		printf("ray x = %f y = %f\n", ray.x, ray.y);
 		while (d < 8)
 		{
-			if (data()->map[(int)ray.x / 64][(int)ray.y / 64] == '1')
+			if (data()->map[(int)(floor(ray.x) / 64)][(int)(floor(ray.y) / 64)] == '1')
 			{
 				
 				d = 8;
@@ -201,11 +201,11 @@ void	drawRays()
 			}
 		}
 		ray.x += top;
-		hx = ray.x;
-		hy = ray.y;
-		disH = distance(ray, data()->player.pos);
+		//hx = ray.x;
+		//hy = ray.y;
+		//disH = distance(ray, data()->player.pos);
 
-		/*    VERTICAL    */
+		/*    VERTICAL    
 		d = 0;
 		top = 0;
 		float disV;
@@ -238,7 +238,7 @@ void	drawRays()
 		//printf("ray x = %f y = %f\n", ray.x, ray.y);
 		while (d < 8)
 		{
-			if (data()->map[(int)ray.x / 64][(int)ray.y / 64] == '1')
+			if (data()->map[(int)(floor(ray.x) / 64)][(int)(floor(ray.y) / 64)] == '1')
 			{
 				
 				d = 8;
@@ -264,10 +264,10 @@ void	drawRays()
 		{
 			ray.x = vx;
 			ray.y = vy;
-		}
+		}*/
 		//ray.x -= data()->player.dir.x;
 		//ray.y -= data()->player.dir.y;
-		//printf("ray x = %i y = %i\n", (int)ray.x, (int)ray.y);
+		printf("ray x = %i y = %i\n", (int)ray.x, (int)ray.y);
 		draw_line(data()->player.pos.y * 64 + 4, data()->player.pos.x * 64 + 4, ray.y, ray.x, RED);
 		angle -= DR;
 	}
