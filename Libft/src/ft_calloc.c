@@ -6,15 +6,15 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:19:19 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:24:19 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:15:40 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	*ft_calloc(size_t nitems, size_t size)
+void	*ft_calloc(int nitems, int size)
 {
-	size_t	total_size;
+	int	total_size;
 	void	*result;
 
 	total_size = nitems * size;

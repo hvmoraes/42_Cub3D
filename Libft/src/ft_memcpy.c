@@ -6,15 +6,15 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:31:16 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:24:54 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:15:55 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, int n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!src && !dst)

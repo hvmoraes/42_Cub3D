@@ -6,17 +6,17 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:32:49 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/06/30 12:24:23 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:17:16 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, size_t len)
+char	*ft_substr(const char *str, int start, int len)
 {
 	char	*result;
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = start;
 	j = 0;

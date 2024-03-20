@@ -6,15 +6,15 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 15:10:41 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:25:57 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:16:28 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, int n)
 {
-	size_t	i;
+	int	i;
 
 	if (n == 0)
 		return (0);

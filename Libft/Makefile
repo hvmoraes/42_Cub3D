@@ -6,7 +6,7 @@
 #    By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/11 17:36:38 by hcorrea-          #+#    #+#              #
-#    Updated: 2024/01/29 16:08:59 by hcorrea-         ###   ########.fr        #
+#    Updated: 2024/03/11 14:01:41 by hcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC 	= 	src/ft_memset.c src/ft_bzero.c src/ft_memcpy.c src/ft_memmove.c src/ft_m
 			src/ft_strnstr.c src/ft_strncmp.c src/ft_atoi.c src/ft_isalpha.c src/ft_isdigit.c src/ft_isalnum.c\
 			src/ft_isascii.c src/ft_isprint.c src/ft_toupper.c src/ft_tolower.c src/ft_calloc.c src/ft_strdup.c\
 			src/ft_strjoin.c src/ft_strtrim.c src/ft_strmapi.c src/ft_striteri.c src/ft_itoa.c src/ft_split.c\
-			src/ft_strcmp.c src/get_next_line.c src/ft_atod.c src/ft_iswhite.c
+			src/ft_strcmp.c src/get_next_line.c src/ft_atod.c src/ft_iswhite.c src/ft_strncpy.c
 
 BONUS 	= 	bonus/ft_lstnew.c bonus/ft_lstadd_front.c bonus/ft_lstsize.c bonus/ft_lstlast.c bonus/ft_lstadd_back.c\
 			bonus/ft_lstdelone.c bonus/ft_lstclear.c bonus/ft_lstiter.c bonus/ft_lstmap.c\

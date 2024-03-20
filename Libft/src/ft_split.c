@@ -6,13 +6,13 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:46:42 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/06/28 10:47:16 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:16:10 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-size_t	ft_strlen2(const char *str)
+int	ft_strlen2(const char *str)
 {
 	int	i;
 
@@ -64,8 +64,8 @@ char	**ft_split(char const *str, char c)
 {
 	char	**result;
 	int		index;
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	result = (char **)malloc(sizeof(char *)
 			* (count_words((char *)str, c) + 1));

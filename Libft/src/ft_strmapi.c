@@ -6,15 +6,15 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:41:45 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:25:53 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:18:34 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *s, char (*f)(int, char))
 {
-	unsigned int	i;
+	int	i;
 	char			*result;
 
 	i = 0;

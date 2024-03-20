@@ -6,15 +6,15 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:15:14 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:24:49 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:15:53 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, int n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < n)

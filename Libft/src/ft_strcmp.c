@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:03:03 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/06/27 16:05:19 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:16:13 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] && s2[i])

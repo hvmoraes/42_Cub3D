@@ -6,15 +6,15 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:46:01 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:24:58 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:15:58 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, int len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!dst && !src)

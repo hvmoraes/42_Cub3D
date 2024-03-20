@@ -6,16 +6,16 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:41:44 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:26:01 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:16:34 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-char	*ft_strnstr(const char *str, const char *search, size_t len)
+char	*ft_strnstr(const char *str, const char *search, int len)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (search[0] == '\0')

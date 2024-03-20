@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:10:38 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:26:09 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:16:39 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
+	int	i;
 
 	if (!s1 || !set)
 		return (0);

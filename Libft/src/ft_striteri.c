@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcorrea- <hcorrea-@student.42lisboa.pt>    +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 08:24:17 by hcorrea-          #+#    #+#             */
-/*   Updated: 2022/10/31 08:31:07 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:18:27 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striteri(char *str, void (*f)(unsigned int, char *))
+void	ft_striteri(char *str, void (*f)(int, char *))
 {
-	unsigned int	i;
+	int	i;
 
 	if (!str || !f)
 		return ;

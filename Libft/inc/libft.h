@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 15:44:54 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/06/30 10:14:33 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:17:56 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,28 @@
 
 /*						PART I - LIBC FUNCTIONS						*/
 
-void			*ft_memset(void *b, int c, size_t len);
-void			*ft_memcpy(void *dst, const void *src, size_t n);
-void			*ft_memmove(void *dst, const void *src, size_t len);
-void			*ft_memchr(const void *str, int c, size_t n);
-int				ft_memcmp(const void *s1, const void *s2, size_t n);
+void			*ft_memset(void *b, int c, int len);
+void			*ft_memcpy(void *dst, const void *src, int n);
+void			*ft_memmove(void *dst, const void *src, int len);
+void			*ft_memchr(const void *str, int c, int n);
+int				ft_memcmp(const void *s1, const void *s2, int n);
 
-size_t			ft_strlen(const char *s);
-size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
+int			ft_strlen(const char *s);
+int			ft_strlcpy(char *dst, const char *src, int dstsize);
+char			*ft_strncpy(char *dest, const char *src, int n);
+int			ft_strlcat(char *dst, const char *src, int dstsize);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strrchr(const char *str, int c);
 char			*ft_strnstr(const char *str, const char *search,
-					size_t len);
+					int len);
 int				ft_strncmp(const char *s1, const char *s2,
-					size_t n);
+					int n);
 int				ft_strcmp(const char *s1, const char *s2);
-void			ft_striteri(char *str, void (*f)(unsigned int, char *));
+void			ft_striteri(char *str, void (*f)(int, char *));
 
 char			*get_next_line(int fd);
 
-void			ft_bzero(void *s, size_t n);
+void			ft_bzero(void *s, int n);
 int				ft_atoi(const char *str);
 double			ft_atod(const char *str);
 
@@ -58,15 +59,15 @@ int				ft_iswhite(char c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 
-void			*ft_calloc(size_t nitems, size_t size);
+void			*ft_calloc(int nitems, int size);
 char			*ft_strdup(const char *s1);
 
 /*						PARTE II - ADITIONAL FUNCTIONS						*/
 
-char			*ft_substr(const char *str, unsigned int start, size_t len);
+char			*ft_substr(const char *str, int start, int len);
 char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_strtrim(const char *s1, const char *set);
-char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+char			*ft_strmapi(const char *s, char (*f)(int, char));
 
 char			**ft_split(char const *str, char c);
 char			*ft_itoa(int n);
