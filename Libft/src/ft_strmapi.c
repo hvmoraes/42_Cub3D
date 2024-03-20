@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 13:41:45 by hcorrea-          #+#    #+#             */
-/*   Updated: 2024/03/16 16:18:34 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:24:13 by neves            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strmapi(const char *s, char (*f)(int, char))
 {
-	int	i;
+	int				i;
 	char			*result;
 
 	i = 0;

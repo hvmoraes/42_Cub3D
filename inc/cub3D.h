@@ -55,9 +55,11 @@ void	img_teste(t_img *img, char *line);
 void	parser(char *filename);
 int		check_format(const char *nome_arquivo);
 void	color_limits(int *red, int *green, int *blue);
-int	rgb_to_int(int red, int green, int blue);
-int	check_count(void);
-int	array_size(char **array);
+int		rgb_to_int(int red, int green, int blue);
+int		check_count(void);
+int		array_size(char **array);
 void	free_array(char **array);
+void	handle_movement_ws(int keycode);
+void	handle_movement_ad(int keycode);
 
 #endif

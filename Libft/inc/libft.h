@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 15:44:54 by hcorrea-          #+#    #+#             */
-/*   Updated: 2024/03/16 16:17:56 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:25:39 by neves            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void			*ft_memmove(void *dst, const void *src, int len);
 void			*ft_memchr(const void *str, int c, int n);
 int				ft_memcmp(const void *s1, const void *s2, int n);
 
-int			ft_strlen(const char *s);
-int			ft_strlcpy(char *dst, const char *src, int dstsize);
+int				ft_strlen(const char *s);
+int				ft_strlcpy(char *dst, const char *src, int dstsize);
 char			*ft_strncpy(char *dest, const char *src, int n);
-int			ft_strlcat(char *dst, const char *src, int dstsize);
+int				ft_strlcat(char *dst, const char *src, int dstsize);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strrchr(const char *str, int c);
 char			*ft_strnstr(const char *str, const char *search,

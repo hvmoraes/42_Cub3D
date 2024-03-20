@@ -5,13 +5,13 @@ void	parseline(char *line)
 	if (*line == '\n')
 		return ;
 	else if (!ft_strncmp(line, "NO", 2) && vars()->no_cnt++ < 1)
-		img_teste(&vars()->graphics->no, line);
+		img_teste(&vars()->gra->no, line);
 	else if (!ft_strncmp(line, "SO", 2) && vars()->so_cnt++ < 1)
-		img_teste(&vars()->graphics->so, line);
+		img_teste(&vars()->gra->so, line);
 	else if (!ft_strncmp(line, "WE", 2) && vars()->we_cnt++ < 1)
-		img_teste(&vars()->graphics->we, line);
+		img_teste(&vars()->gra->we, line);
 	else if (!ft_strncmp(line, "EA", 2) && vars()->ea_cnt++ < 1)
-		img_teste(&vars()->graphics->ea, line);
+		img_teste(&vars()->gra->ea, line);
 	else if (!ft_strncmp(line, "F", 1) && vars()->floor_cnt++ < 1)
 		vars()->fcolor = process_string(line);
 	else if (!ft_strncmp(line, "C", 1) && vars()->ceiling_cnt++ < 1)

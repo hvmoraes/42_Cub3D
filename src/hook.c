@@ -1,6 +1,6 @@
 #include "../inc/cub3D.h"
 
-void	handle_movement(int keycode)
+void	handle_movement_ws(int keycode)
 {
 	int	teste_x;
 	int	teste_y;
@@ -25,6 +25,14 @@ void	handle_movement(int keycode)
 			vars()->player->x -= vars()->player->delta_x;
 		}
 	}
+}
+
+void	handle_movement_ad(int keycode)
+{
+	int	teste_x;
+	int	teste_y;
+
+	handle_movement_ws(keycode);
 	if (keycode == KEY_D)
 	{
 		teste_x = (vars()->player->x - vars()->player->delta_y * 10) / CUBESIZE;
@@ -71,7 +79,7 @@ int	key_hook(int keycode)
 {
 	handle_exit(keycode);
 	handle_rotation(keycode);
-	handle_movement(keycode);
+	handle_movement_ad(keycode);
 	return (0);
 }
 
@@ -88,29 +96,6 @@ int	render_hook(void)
 	draw_rectagle(SCREENWIDTH, SCREENHEIGHT / 2, pos2);
 	draw_rays_2d(*vars()->win);
 	mlx_put_image_to_window(vars()->win->mlx_ptr, vars()->win->win_ptr, \
-	vars()->graphics->canvas.img_ptr, 0, 0);
+	vars()->gra->canvas.img_ptr, 0, 0);
 	return (0);
-}
-
-int	exit_program(int exit_status)
-{
-	if (vars()->win->mlx_ptr)
-	{
-		if (vars()->graphics->canvas.img_ptr)
-			mlx_destroy_image(vars()->win->mlx_ptr, vars()->graphics->canvas.img_ptr);
-		if (vars()->graphics->no.img_ptr)
-			mlx_destroy_image(vars()->win->mlx_ptr, vars()->graphics->no.img_ptr);
-		if (vars()->graphics->so.img_ptr)
-			mlx_destroy_image(vars()->win->mlx_ptr, vars()->graphics->so.img_ptr);
-		if (vars()->graphics->ea.img_ptr)
-			mlx_destroy_image(vars()->win->mlx_ptr, vars()->graphics->ea.img_ptr);
-		if (vars()->graphics->we.img_ptr)
-			mlx_destroy_image(vars()->win->mlx_ptr, vars()->graphics->we.img_ptr);
-		mlx_destroy_window(vars()->win->mlx_ptr, vars()->win->win_ptr);
-		mlx_destroy_display(vars()->win->mlx_ptr);
-		free(vars()->win->mlx_ptr);
-	}
-	if (vars()->graphics)
-		free(vars()->graphics);
-	exit(exit_status);
 }

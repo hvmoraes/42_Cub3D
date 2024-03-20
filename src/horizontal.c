@@ -9,23 +9,30 @@ void	horizontal_vars(double ra)
 	vars()->rays.atan = -1 / tan(ra);
 }
 
+void	horizontal_aux(void)
+{
+	vars()->rays.mx = (int)(vars()->rays.rx) >> 6;
+	vars()->rays.my = (int)(vars()->rays.ry) >> 6;
+	vars()->rays.mp = vars()->rays.my * vars()->map_width + vars()->rays.mx;
+	if (vars()->rays.mx < 0 || vars()->rays.my < 0 \
+	|| vars()->rays.mx > vars()->map_width
+		|| vars()->rays.my > vars()->map_height)
+		vars()->rays.mp = vars()->map_width * vars()->map_height;
+}
+
 void	horizontal_loop(void)
 {
 	double	dh;
 
-	vars()->rays.mx = (int)(vars()->rays.rx) >> 6;
-	vars()->rays.my = (int)(vars()->rays.ry) >> 6;
-	vars()->rays.mp = vars()->rays.my * vars()->map_width + vars()->rays.mx;
-	if (vars()->rays.mx < 0 || vars()->rays.my < 0 || vars()->rays.mx > \
-vars()->map_width || vars()->rays.my > vars()->map_height)
-		vars()->rays.mp = vars()->map_width * vars()->map_height;
-	if (vars()->rays.mp > 0 && vars()->rays.mp < vars()->map_width * \
-vars()->map_height && vars()->map[vars()->rays.my][vars()->rays.mx] == 1)
+	horizontal_aux();
+	if (vars()->rays.mp > 0 && vars()->rays.mp < vars()->map_width \
+		* vars()->map_height \
+		&& vars()->map[vars()->rays.my][vars()->rays.mx] == 1)
 	{
 		vars()->rays.hx = vars()->rays.rx;
 		vars()->rays.hy = vars()->rays.ry;
-		dh = distance(vars()->player->x, \
-vars()->player->y, vars()->rays.hx, vars()->rays.hy);
+		dh = distance(vars()->player->x, vars()->player->y, \
+		vars()->rays.hx, vars()->rays.hy);
 		vars()->rays.dh = dh;
 		vars()->rays.dof = 8;
 	}
@@ -59,5 +66,5 @@ void	img_teste(t_img *img, char *line)
 		return ;
 	}
 	img->addr = mlx_get_data_addr(img->img_ptr, \
-		&img->bpp, &img->line_len, &img->endian);
+	&img->bpp, &img->line_len, &img->endian);
 }

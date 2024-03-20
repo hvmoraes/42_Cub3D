@@ -41,5 +41,15 @@ void	wall_color(void)
 		vars()->rays.dist = vars()->rays.dh;
 		color = rgb_to_int((int)100, 0, 0);
 	}
-	vars()->wallColor = color;
+	vars()->wall_collor = color;
+}
+
+void	init_colors(void)
+{
+	t_color	*color;
+
+	color = &(vars()->color);
+	color->r = 0;
+	color->g = 0;
+	color->b = 0;
 }

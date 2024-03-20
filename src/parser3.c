@@ -16,10 +16,11 @@ int	is_nbr(char *nbr)
 
 int	process_string(char *str)
 {
-	char **color;
+	char	**color;
 
 	color = ft_split(ft_strrchr(str, ' '), ',');
-	if (array_size(color) != 3 || !is_nbr(color[0]) || !is_nbr(color[1]) || !is_nbr(color[2]))
+	if (array_size(color) != 3 || !is_nbr(color[0]) \
+	|| !is_nbr(color[1]) || !is_nbr(color[2]))
 	{
 		free_array(color);
 		free(str);
@@ -36,7 +37,7 @@ int	process_string(char *str)
 	return (rgb_to_int(vars()->color.r, vars()->color.g, vars()->color.b));
 }
 
-int	 process_character(char *input_str, int index)
+int	process_character(char *input_str, int index)
 {
 	char	current_char;
 
@@ -81,18 +82,5 @@ int	validate_string(char *input_str)
 		index++;
 	}
 	fill_map_line(index);
-	return (0);
-}
-
-int	check_format(const char *nome_arquivo)
-{
-	const char	*extensao;
-
-	extensao = ft_strrchr(nome_arquivo, '.');
-	if (extensao != NULL)
-	{
-		if (ft_strcmp(extensao, ".cub") == 0)
-			return (1);
-	}
 	return (0);
 }

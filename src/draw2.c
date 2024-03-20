@@ -1,20 +1,22 @@
 #include "../inc/cub3D.h"
 
-void draw_square(t_img img, int size, t_pos pos)
+void	draw_square(t_img img, int size, t_pos pos)
 {
-    int i = pos.x;
-    while (i < pos.x + size)
-    {
-        int j = pos.y;
-        while (j < pos.y + size)
-        {
-            put_pixel_img(img, i, j, pos.color);
-            j++;
-        }
-        i++;
-    }
-}
+	int	i;
+	int	j;
 
+	i = pos.x;
+	j = pos.y;
+	while (i < pos.x + size)
+	{
+		while (j < pos.y + size)
+		{
+			put_pixel_img(img, i, j, pos.color);
+			j++;
+		}
+		i++;
+	}
+}
 
 void	draw_rays_2d(t_win window)
 {
@@ -52,7 +54,7 @@ void	draw_rectagle(int width, int height, t_pos pos)
 		j = pos.y;
 		while (j < pos.y + height)
 		{
-			put_pixel_img(vars()->graphics->canvas, i, j, pos.color);
+			put_pixel_img(vars()->gra->canvas, i, j, pos.color);
 			j++;
 		}
 		i++;

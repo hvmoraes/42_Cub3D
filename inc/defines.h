@@ -1,3 +1,6 @@
+#ifndef DEFINES_H
+# define DEFINES_H
+
 # define PI 3.1415926535
 # define P2 1.57079632679
 # define P3 4.71238898038
@@ -18,3 +21,5 @@
 # define SCREEN2HEIGHT 320
 # define PLAYERSIZE 8
 # define CUBESIZE 64
+
+#endif

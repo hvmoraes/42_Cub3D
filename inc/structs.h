@@ -1,11 +1,11 @@
 #ifndef STRUCTS_H
-#define STRUCTS_H
+# define STRUCTS_H
 
-typedef struct s_oam 
+typedef struct s_oam
 {
-    char orientation;
-    double angle;
-} t_oam;
+	char	orientation;
+	double	angle;
+}	t_oam;
 
 typedef struct s_color
 {
@@ -39,88 +39,87 @@ typedef struct s_rays
 
 typedef struct s_data
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
 }	t_data;
 
 typedef struct s_win
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		height;
-	int		width;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int			height;
+	int			width;
 }	t_win;
 
 typedef struct s_img
 {
-	t_win	win;
-	void	*img_ptr;
-	char	*addr;
-	int		h;
-	int		w;
-	int		bpp;
-	int		endian;
-	int		line_len;
+	t_win		win;
+	void		*img_ptr;
+	char		*addr;
+	int			h;
+	int			w;
+	int			bpp;
+	int			endian;
+	int			line_len;
 }	t_img;
 
 typedef struct s_player
 {
-	double	x;
-	double	y;
-	int		size;
-	double	angle;
-	double	delta_x;
-	double	delta_y;
-	int		startx;
-	int		starty;
-	char	orientation;
+	double		x;
+	double		y;
+	int			size;
+	double		angle;
+	double		delta_x;
+	double		delta_y;
+	int			startx;
+	int			starty;
+	char		orientation;
 }	t_player;
 
 typedef struct s_position
 {
-	int	x;
-	int	y;
-	int	color;
+	int			x;
+	int			y;
+	int			color;
 }	t_pos;
 
-typedef struct s_graphics
+typedef struct s_gra
 {
-  t_img wall;
-  t_img floor;
-  t_img ceil_img;
-  t_img floor_img;
-  t_img teste;
-  t_img no;
-  t_img so;
-  t_img we;
-  t_img ea;
-  t_img	canvas;
-} t_graphics;
+	t_img			wall;
+	t_img			floor;
+	t_img			ceil_img;
+	t_img			floor_img;
+	t_img			teste;
+	t_img			no;
+	t_img			so;
+	t_img			we;
+	t_img			ea;
+	t_img			canvas;
+}	t_gra;
 
 typedef struct s_var
 {
 	t_rays		rays;
 	t_win		*win;
-	t_graphics  *graphics;
+	t_gra		*gra;
 	t_color		color;
-	int	player_cnt;
-	int	no_cnt;
-	int	so_cnt;
-	int	we_cnt;
-	int	ea_cnt;
-	int	floor_cnt;
-	int	ceiling_cnt;
-	
+	int			player_cnt;
+	int			no_cnt;
+	int			so_cnt;
+	int			we_cnt;
+	int			ea_cnt;
+	int			floor_cnt;
+	int			ceiling_cnt;
 	int			fcolor;
 	int			ccolor;
 	t_player	*player;
 	int			map[100][100];
 	int			map_width;
 	int			map_height;
-	int			wallColor;
+	int			wall_collor;
 	double		dr;
 	float		ca;
 	float		line_h;
@@ -136,6 +135,5 @@ typedef struct s_var
 	int			sy;
 	int			err;
 }	t_var;
-
 
 #endif

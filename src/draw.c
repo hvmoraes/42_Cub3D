@@ -43,14 +43,14 @@ t_img	get_wall_img(void)
 	if (vars()->rays.dh >= vars()->rays.dv)
 	{
 		if (vars()->rays.rx < vars()->player->x)
-			return (vars()->graphics->we);
-		return (vars()->graphics->ea);
+			return (vars()->gra->we);
+		return (vars()->gra->ea);
 	}
 	else
 	{
 		if (vars()->rays.ry < vars()->player->y)
-			return (vars()->graphics->so);
-		return (vars()->graphics->no);
+			return (vars()->gra->so);
+		return (vars()->gra->no);
 	}
 }
 

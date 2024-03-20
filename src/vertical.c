@@ -9,25 +9,32 @@ void	vertical_vars(double ra)
 	vars()->rays.ntan = -tan(ra);
 }
 
+void	vertical_aux(void)
+{
+	vars()->rays.mx = (int)(vars()->rays.rx) >> 6;
+	vars()->rays.my = (int)(vars()->rays.ry) >> 6;
+	vars()->rays.mp = vars()->rays.my * vars()->map_width + vars()->rays.mx;
+	if (vars()->rays.mx < 0 || vars()->rays.my < 0
+		|| vars()->rays.mx > vars()->map_width \
+		|| vars()->rays.my > vars()->map_height)
+		vars()->rays.mp = vars()->map_width * vars()->map_height;
+}
+
 void	vertical_loop(void)
 {
 	double	dv;
 
-	vars()->rays.mx = (int)(vars()->rays.rx) >> 6;
-	vars()->rays.my = (int)(vars()->rays.ry) >> 6;
-	vars()->rays.mp = vars()->rays.my * vars()->map_width + vars()->rays.mx;
-	if (vars()->rays.mx < 0 || vars()->rays.my < 0 || \
-vars()->rays.mx > vars()->map_width || vars()->rays.my > vars()->map_height)
-		vars()->rays.mp = vars()->map_width * vars()->map_height;
-	if (vars()->rays.mp > 0 && vars()->rays.mp < vars()->map_width * \
-vars()->map_height && vars()->map[vars()->rays.my][vars()->rays.mx] == 1)
+	vertical_aux();
+	if (vars()->rays.mp > 0 && vars()->rays.mp < vars()->map_width \
+		* vars()->map_height \
+		&& vars()->map[vars()->rays.my][vars()->rays.mx] == 1)
 	{
-		vars()->rays.dof = MAXSIZE;
 		vars()->rays.vx = vars()->rays.rx;
 		vars()->rays.vy = vars()->rays.ry;
-		dv = distance(vars()->player->x, \
-vars()->player->y, vars()->rays.vx, vars()->rays.vy);
+		dv = distance(vars()->player->x, vars()->player->y, \
+		vars()->rays.vx, vars()->rays.vy);
 		vars()->rays.dv = dv;
+		vars()->rays.dof = MAXSIZE;
 	}
 	else
 	{
