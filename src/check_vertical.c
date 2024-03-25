@@ -1,6 +1,6 @@
 #include "../inc/cub3D.h"
 
-void	vertical_vars(double ra)
+void	init_vertical(double ra)
 {
 	vars()->rays.dof = 0;
 	vars()->rays.dv = 1000000;
@@ -9,7 +9,7 @@ void	vertical_vars(double ra)
 	vars()->rays.ntan = -tan(ra);
 }
 
-void	vertical_aux(void)
+void	vertical_utils(void)
 {
 	vars()->rays.mx = (int)(vars()->rays.rx) >> 6;
 	vars()->rays.my = (int)(vars()->rays.ry) >> 6;
@@ -20,11 +20,11 @@ void	vertical_aux(void)
 		vars()->rays.mp = vars()->map_width * vars()->map_height;
 }
 
-void	vertical_loop(void)
+void	loop_vertical(void)
 {
 	double	dv;
 
-	vertical_aux();
+	vertical_utils();
 	if (vars()->rays.mp > 0 && vars()->rays.mp < vars()->map_width \
 		* vars()->map_height \
 		&& vars()->map[vars()->rays.my][vars()->rays.mx] == 1)
@@ -44,11 +44,11 @@ void	vertical_loop(void)
 	}
 }
 
-void	vertical_check(double ra)
+void	check_vertical(double ra)
 {
-	vertical_vars(ra);
-	left_or_right(ra);
-	up_or_down(ra);
+	init_vertical(ra);
+	west_east(ra);
+	north_south(ra);
 	while (vars()->rays.dof < MAXSIZE)
-		vertical_loop();
+		loop_vertical();
 }

@@ -1,6 +1,6 @@
 #include "../inc/cub3D.h"
 
-void	horizontal_vars(double ra)
+void	init_horizontal(double ra)
 {
 	vars()->rays.dof = 0;
 	vars()->rays.dh = 1000000;
@@ -9,7 +9,7 @@ void	horizontal_vars(double ra)
 	vars()->rays.atan = -1 / tan(ra);
 }
 
-void	horizontal_aux(void)
+void	horizontal_utils(void)
 {
 	vars()->rays.mx = (int)(vars()->rays.rx) >> 6;
 	vars()->rays.my = (int)(vars()->rays.ry) >> 6;
@@ -20,11 +20,11 @@ void	horizontal_aux(void)
 		vars()->rays.mp = vars()->map_width * vars()->map_height;
 }
 
-void	horizontal_loop(void)
+void	loop_horizontal(void)
 {
 	double	dh;
 
-	horizontal_aux();
+	horizontal_utils();
 	if (vars()->rays.mp > 0 && vars()->rays.mp < vars()->map_width \
 		* vars()->map_height \
 		&& vars()->map[vars()->rays.my][vars()->rays.mx] == 1)
@@ -44,27 +44,11 @@ void	horizontal_loop(void)
 	}
 }
 
-void	horizontal_check(double ra)
+void	check_horizontal(double ra)
 {
-	horizontal_vars(ra);
-	look_up_or_down(ra);
-	look_left_or_right(ra);
+	init_horizontal(ra);
+	look_north_south(ra);
+	look_west_east(ra);
 	while (vars()->rays.dof < 8)
-		horizontal_loop();
-}
-
-void	img_teste(t_img *img, char *line)
-{
-	if (img->img_ptr)
-		mlx_destroy_image(vars()->win->mlx_ptr, img->img_ptr);
-	img->img_ptr = mlx_xpm_file_to_image(vars()->win->mlx_ptr, \
-		line + 3, &img->w, &img->h);
-	if (!img->img_ptr)
-	{
-		free(line);
-		exit_program(printf("Error\nInvalid texture provided\n"));
-		return ;
-	}
-	img->addr = mlx_get_data_addr(img->img_ptr, \
-	&img->bpp, &img->line_len, &img->endian);
+		loop_horizontal();
 }

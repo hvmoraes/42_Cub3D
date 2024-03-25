@@ -13,7 +13,7 @@ void	free_array(char **array)
 	free(array);
 }
 
-int	exit_program(int exit_status)
+int	free_all(int exit_status)
 {
 	if (vars()->win->mlx_ptr)
 	{
@@ -35,4 +35,10 @@ int	exit_program(int exit_status)
 	if (vars()->gra)
 		free(vars()->gra);
 	exit(exit_status);
+}
+
+void	handle_exit(int keycode)
+{
+	if (keycode == ESC_KEY_M || keycode == CROSS)
+		free_all(0);
 }

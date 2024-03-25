@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:43:04 by hcorrea-          #+#    #+#             */
-/*   Updated: 2024/03/20 11:49:21 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/25 12:16:54 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	*read_line(int fd, int *rd)
 		if (*rd <= 0)
 			break ;
 		buffer[i++] = character;
-		if (character == '\n' || *rd <= 0)
+		if (character == '\n' || character == '\r' || *rd <= 0)
 			break ;
 	}
 	if (i > 0)

@@ -1,6 +1,6 @@
 #include "../inc/cub3D.h"
 
-void	init_vars(void)
+void	init_rays(void)
 {
 	t_rays	*rays;
 
@@ -17,7 +17,7 @@ void	init_vars(void)
 		rays->angle -= 2 * PI;
 }
 
-t_pos	initialize_player_position(void)
+t_pos	init_player_pos(void)
 {
 	t_pos		pos;
 	t_player	*player;
@@ -31,7 +31,7 @@ t_pos	initialize_player_position(void)
 	return (pos);
 }
 
-void	setup_player(void)
+void	init_player(void)
 {
 	if (vars()->player->orientation == 'N')
 		vars()->player->angle = -P2;
@@ -45,7 +45,7 @@ void	setup_player(void)
 	vars()->player->delta_y = sin(vars()->player->angle) * 5;
 }
 
-void	init_vars2(void)
+void	init_vars(void)
 {
 	static t_player		player;
 
@@ -65,26 +65,25 @@ void	init_vars2(void)
 	vars()->player = &player;
 }
 
-void	initialize_game(char *file_path)
+void	inits(char *file_path)
 {
 	static t_win		window;
-	static t_img		player_img;
+	static t_img		canvas;
 
-	init_vars2();
-	window = new_program(SCREENWIDTH, SCREENHEIGHT, "cub3d");
+	init_vars();
+	window = init_window(SCREENWIDTH, SCREENHEIGHT, "cub3d");
 	vars()->win = &window;
 	if (!check_format(file_path))
-		exit_program(printf("Error:\nWrong file extension\n") != 0);
+		free_all(printf("Error:\nWrong file extension\n") != 0);
 	parser(file_path);
 	if (!check_count())
-		exit_program(printf("Error\nWrong number of elements\n"));
+		free_all(printf("Error\nWrong number of elements\n"));
 	if (!check_images())
-		exit_program(printf("Error\nWrong texture path\n") != 0);
-	if (!check_grid() || !vars()->player->orientation)
-		exit_program(printf("Error\nInvalid map\n") != 0);
-	player_img = new_img(SCREENWIDTH, SCREENHEIGHT, window);
-	vars()->gra->canvas = player_img;
-	setup_player();
-	draw_player_and_rays(window);
-	handle_hooks_and_put_image(window);
+		free_all(printf("Error\nWrong texture path\n") != 0);
+	if (!check_map() || !vars()->player->orientation)
+		free_all(printf("Error\nInvalid map\n") != 0);
+	canvas = new_image(SCREENWIDTH, SCREENHEIGHT, window);
+	vars()->gra->canvas = canvas;
+	init_player();
+	draw_all();
 }

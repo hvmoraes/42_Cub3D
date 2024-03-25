@@ -1,6 +1,6 @@
 #include "../inc/cub3D.h"
 
-void	look_up_or_down(double ra)
+void	look_north_south(double ra)
 {
 	if (ra > PI)
 	{
@@ -17,7 +17,7 @@ void	look_up_or_down(double ra)
 	vars()->rays.xo = -vars()->rays.yo * vars()->rays.atan;
 }
 
-void	look_left_or_right(double ra)
+void	look_west_east(double ra)
 {
 	if (ra == 0 || ra == PI)
 	{
@@ -27,7 +27,7 @@ void	look_left_or_right(double ra)
 	}
 }
 
-void	left_or_right(double ra)
+void	west_east(double ra)
 {
 	if ((ra > P2 && ra < P3) || (ra < P2 || ra > P3))
 		vars()->rays.rx = (((int)vars()->player->x >> 6) << 6);
@@ -46,7 +46,7 @@ void	left_or_right(double ra)
 	vars()->rays.yo = -vars()->rays.xo * vars()->rays.ntan;
 }
 
-void	up_or_down(double ra)
+void	north_south(double ra)
 {
 	if (ra == 0 || ra == PI)
 	{

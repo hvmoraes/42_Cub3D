@@ -1,6 +1,6 @@
 #include "../inc/cub3D.h"
 
-void	put_pixel_img(t_img img, int x, int y, int color)
+void	put_pixel(t_img img, int x, int y, int color)
 {
 	char	*dst;
 
@@ -11,7 +11,7 @@ void	put_pixel_img(t_img img, int x, int y, int color)
 	}
 }
 
-int	get_pixel_img(t_img img, int pixel)
+int	get_pixel(t_img img, int pixel)
 {
 	char	*src;
 	int		color;
@@ -25,7 +25,7 @@ int	get_pixel_img(t_img img, int pixel)
 	return (-1);
 }
 
-t_img	new_img(int w, int h, t_win window)
+t_img	new_image(int w, int h, t_win window)
 {
 	t_img	image;
 
@@ -38,7 +38,7 @@ t_img	new_img(int w, int h, t_win window)
 	return (image);
 }
 
-t_win	new_program(int w, int h, char *str)
+t_win	init_window(int w, int h, char *str)
 {
 	void	*mlx_ptr;
 
