@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:07 by neves             #+#    #+#             */
-/*   Updated: 2024/03/27 10:39:04 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:43:31 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	init_vars(void)
 	vars()->ea_cnt = 0;
 	vars()->floor_cnt = 0;
 	vars()->ceiling_cnt = 0;
+	vars()->map_cnt = 0;
 	vars()->player = &player;
 }
 

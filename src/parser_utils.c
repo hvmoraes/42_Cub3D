@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:12 by neves             #+#    #+#             */
-/*   Updated: 2024/03/27 11:31:41 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:43:19 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	fill_map_line(int index)
 
 int	is_valid_character(char c)
 {
+	if ((c - '0') == 0 || (c - '0') == 1)
+		vars()->map_cnt++;
 	if ((c - '0') == 0 || (c - '0') == 1 || \
 		c == 'N' || c == 'S' || \
 		c == 'E' || c == 'W' || \

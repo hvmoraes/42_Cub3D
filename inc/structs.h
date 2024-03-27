@@ -125,6 +125,7 @@ typedef struct s_var
 	int			ea_cnt;
 	int			floor_cnt;
 	int			ceiling_cnt;
+	int			map_cnt;
 	int			fcolor;
 	int			ccolor;
 	t_player	*player;
