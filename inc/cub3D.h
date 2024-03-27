@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:49 by neves             #+#    #+#             */
-/*   Updated: 2024/03/25 14:53:50 by neves            ###   ########.fr       */
+/*   Updated: 2024/03/27 10:53:21 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	check_vertical(double ra);
 
 void	color_limits(int *red, int *green, int *blue);
 int		rgb_to_int(int red, int green, int blue);
-void	wall_color(void);
+void	check_hit(void);
 
 // direction.c
 
@@ -83,7 +83,7 @@ t_win	init_window(int w, int h, char *str);
 // inits.c
 
 void	init_rays(void);
-t_pos	init_player_pos(void);
+void	init_player_pos(void);
 void	inits(char *file_path);
 
 // parser_utils.c

@@ -131,7 +131,6 @@ typedef struct s_var
 	int			map[100][100];
 	int			map_width;
 	int			map_height;
-	int			wall_collor;
 	double		dr;
 	float		ca;
 	float		line_h;
@@ -139,7 +138,6 @@ typedef struct s_var
 	float		ty;
 	float		tx;
 	float		ty_off;
-	float		shade;
 	int			pix_size;
 	int			dx;
 	int			sx;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:52:52 by neves             #+#    #+#             */
-/*   Updated: 2024/03/25 14:52:53 by neves            ###   ########.fr       */
+/*   Updated: 2024/03/27 11:04:34 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	draw(void)
 
 	pos.x = vars()->player->x;
 	pos.y = vars()->player->y;
-	pos.color = rgb_to_int(0, 255, 0);
 	draw_utils();
 	wall = wall_image();
 	wall_collision();
@@ -32,7 +31,7 @@ void	draw(void)
 		get_pixel(wall, (int)(vars()->tx) + (int)(vars()->ty) * CUBESIZE);
 		pos.x = vars()->rays.ray * vars()->pix_size;
 		pos.y = SCREENHEIGHT / 2 - vars()->line_h / 2 + y;
-		pos.color = color * vars()->shade;
+		pos.color = color;
 		draw_floor_ceiling(vars()->pix_size, vars()->pix_size, pos);
 		vars()->ty += vars()->ty_step;
 		y++;
@@ -51,7 +50,7 @@ void	rays(void)
 		angle = vars()->rays.angle;
 		check_horizontal(angle);
 		check_vertical(angle);
-		wall_color();
+		check_hit();
 		draw();
 		vars()->rays.ray++;
 	}

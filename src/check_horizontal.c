@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_horizontal.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:50:31 by neves             #+#    #+#             */
-/*   Updated: 2024/03/25 14:50:32 by neves            ###   ########.fr       */
+/*   Updated: 2024/03/27 10:45:29 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	horizontal_utils(void)
 	vars()->rays.my = (int)(vars()->rays.ry) >> 6;
 	vars()->rays.mp = vars()->rays.my * vars()->map_width + vars()->rays.mx;
 	if (vars()->rays.mx < 0 || vars()->rays.my < 0 \
-	|| vars()->rays.mx > vars()->map_width
+		|| vars()->rays.mx > vars()->map_width
 		|| vars()->rays.my > vars()->map_height)
 		vars()->rays.mp = vars()->map_width * vars()->map_height;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:07 by neves             #+#    #+#             */
-/*   Updated: 2024/03/25 14:53:08 by neves            ###   ########.fr       */
+/*   Updated: 2024/03/27 10:39:04 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_rays(void)
 		rays->angle -= 2 * PI;
 }
 
-t_pos	init_player_pos(void)
+void	init_player_pos(void)
 {
 	t_pos		pos;
 	t_player	*player;
@@ -39,8 +39,6 @@ t_pos	init_player_pos(void)
 	pos.y = player->starty * CUBESIZE + CUBESIZE / 2;
 	player->x = pos.x;
 	player->y = pos.y;
-	pos.color = rgb_to_int(255, 255, 0);
-	return (pos);
 }
 
 void	init_player(void)

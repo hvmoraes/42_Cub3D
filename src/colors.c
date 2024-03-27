@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:50:45 by neves             #+#    #+#             */
-/*   Updated: 2024/03/25 14:50:46 by neves            ###   ########.fr       */
+/*   Updated: 2024/03/27 11:00:23 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,20 @@ int	rgb_to_int(int red, int green, int blue)
 	return (red << 16 | green << 8 | green << 8 | blue);
 }
 
-void	wall_color(void)
+void	check_hit(void)
 {
-	int	color;
-
-	color = rgb_to_int((int)0, 0, 0);
 	if (vars()->rays.dv <= vars()->rays.dh)
 	{
 		vars()->rays.rx = vars()->rays.vx;
 		vars()->rays.ry = vars()->rays.vy;
 		vars()->rays.dist = vars()->rays.dv;
-		color = rgb_to_int((int)255, 0, 0);
 	}
 	if (vars()->rays.dv > vars()->rays.dh)
 	{
 		vars()->rays.rx = vars()->rays.hx;
 		vars()->rays.ry = vars()->rays.hy;
 		vars()->rays.dist = vars()->rays.dh;
-		color = rgb_to_int((int)100, 0, 0);
 	}
-	vars()->wall_collor = color;
 }
 
 void	init_colors(void)

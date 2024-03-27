@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:10 by neves             #+#    #+#             */
-/*   Updated: 2024/03/25 14:53:11 by neves            ###   ########.fr       */
+/*   Updated: 2024/03/27 10:38:08 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,4 @@ int	main(int argc, char **argv)
 		printf("Error\nUsage: ./cub3d something.cub\n");
 	return (1);
 }
+ 

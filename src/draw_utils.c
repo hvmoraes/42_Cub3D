@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:52:50 by neves             #+#    #+#             */
-/*   Updated: 2024/03/25 14:52:51 by neves            ###   ########.fr       */
+/*   Updated: 2024/03/27 11:05:24 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,12 @@ void	draw_utils(void)
 	if (vars()->rays.angle >= 2 * PI)
 		vars()->rays.angle -= 2 * PI;
 	vars()->ty = vars()->ty_off * vars()->ty_step;
-	vars()->shade = 1;
 }
 
 void	wall_collision(void)
 {
 	if (vars()->rays.dh >= vars()->rays.dv)
-	{
 		vars()->tx = (int)(vars()->rays.ry) % CUBESIZE;
-		vars()->shade = 0.5;
-	}
 	else
 		vars()->tx = (int)(vars()->rays.rx) % CUBESIZE;
 	vars()->rays.dh *= cos(vars()->ca);
