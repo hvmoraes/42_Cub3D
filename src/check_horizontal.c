@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:50:31 by neves             #+#    #+#             */
-/*   Updated: 2024/03/27 10:45:29 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/01 16:31:19 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_horizontal(double ra)
 {
 	vars()->rays.dof = 0;
 	vars()->rays.dh = 1000000;
-	vars()->rays.hx = vars()->player->x,
+	vars()->rays.hx = vars()->player->x;
 	vars()->rays.hy = vars()->player->y;
 	vars()->rays.atan = -1 / tan(ra);
 }
