@@ -24,7 +24,7 @@ INC_DIR = inc
 SRC     =	$(shell find $(SRC_DIR) -name '*.c')
 OBJ     =	$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
-CC			=	gcc
+CC			=	cc
 CFLAGS	=	-Wall -Wextra -Werror -I./inc
 LDFLAGS	=	-L./mlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 

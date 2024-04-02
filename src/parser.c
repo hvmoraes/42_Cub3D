@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:17 by neves             #+#    #+#             */
-/*   Updated: 2024/03/27 17:39:31 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/02 08:23:04 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	init_floor_ceiling(char *line)
 	check_line(line);
 	color = ft_split(ft_strrchr(line, ' '), ',');
 	if (array_size(color) != 3 || !is_nbr(color[0]) \
-	|| !is_nbr(color[1]) || !is_nbr(color[2]))
+	|| !is_nbr(color[1]) || !is_nbr(color[2]) || vars()->map_cnt != 0)
 	{
 		free_array(color);
 		free(line);
@@ -62,7 +62,7 @@ void	init_texture(t_img *img, char *line)
 		img->img_ptr = mlx_xpm_file_to_image(vars()->win->mlx_ptr, \
 			line + 3, &img->w, &img->h);
 	free_array(str);
-	if (!img->img_ptr)
+	if (!img->img_ptr || vars()->map_cnt != 0)
 	{
 		free(line);
 		free_all(printf("Error\nInvalid texture provided\n"));
