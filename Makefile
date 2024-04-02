@@ -39,6 +39,19 @@ LIBFT_LIB			=	libft.a
 LIBFT_FILE		:=	$(LIBFT_DIR)/$(LIBFT_LIB)
 
 all:			$(NAME)
+					
+$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c | $(OBJ_DIR)
+								@$(MKDIR) $(dir $@)
+								@$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME):	$(LIBFT_FILE) $(OBJ)
+					@echo "$(YELLOW)Compiling Minilibx...$(END)"
+					@$(MAKE) mlx > /dev/null 2>&1
+					@echo "$(GREEN)Minilibx successfully compiled!$(END)"
+					@sleep 0.5
+					@clear
+					@echo "$(YELLOW)Compiling Cub3D...$(END)"
+					@$(CC) $(OBJ) $(CFLAGS) $(LDFLAGS) $(LIBFT_FILE) -o $@
 					@echo "$(GREEN)Cub3D successfully compiled!$(END)"
 					@sleep 0.5
 					@clear
@@ -54,15 +67,6 @@ all:			$(NAME)
 						echo "$(RED)Norminette check failed!$(END)"; \
 					fi; \
 					rm -f norminette_output.txt
-					
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c | $(OBJ_DIR)
-								@$(MKDIR) $(dir $@)
-								@$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME):	libft minilibx $(OBJ)
-					@clear
-					@echo "$(YELLOW)Compiling Cub3D...$(END)"
-					@$(CC) $(OBJ) $(CFLAGS) $(LDFLAGS) $(LIBFT_FILE) -o $@
 
 $(OBJ_DIR):
 					@$(MKDIR) $(OBJ_DIR)
@@ -70,14 +74,7 @@ $(OBJ_DIR):
 %.o:				%.c
 					@$(CC) $(CFLAGS) -I $(HEADER) -I $(LIBFT_HEADER) -Imlx -c $< -o $@		
 
-minilibx:
-					@echo "$(YELLOW)Compiling Minilibx...$(END)"
-					@$(MAKE) mlx > /dev/null 2>&1
-					@echo "$(GREEN)Minilibx successfully compiled!$(END)"
-					@sleep 0.5
-					@clear
-
-libft:				$(LIBFT_FILE)
+libft:		$(LIBFT_FILE)
 
 $(LIBFT_FILE):
 					@$(MAKE) $(LIBFT_DIR)
@@ -103,7 +100,7 @@ re:				fclean all
 v:				all
 					$(eval ORIGINAL_CFLAGS := $(CFLAGS))
 					$(eval override CFLAGS := $(filter-out -g -fsanitize=address,$(CFLAGS)))
-					valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./minirt
+					valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d
 					$(eval override CFLAGS := $(ORIGINAL_CFLAGS))
 
 .PHONY:		all clean fclean re
