@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:52:50 by neves             #+#    #+#             */
-/*   Updated: 2024/04/02 08:31:38 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:28:45 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ t_img	wall_image(void)
 	else
 	{
 		if (vars()->rays.ry < vars()->player->y)
-			return (vars()->gra->so);
-		return (vars()->gra->no);
+			return (vars()->gra->no);
+		return (vars()->gra->so);
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:19:19 by hcorrea-          #+#    #+#             */
-/*   Updated: 2024/03/20 14:25:06 by neves            ###   ########.fr       */
+/*   Updated: 2024/04/02 13:05:00 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(int nitems, int size)
 	total_size = nitems * size;
 	result = malloc(total_size);
 	if (!result)
-		return (0);
+		return (NULL);
 	ft_memset(result, 0, total_size);
 	return (result);
 }

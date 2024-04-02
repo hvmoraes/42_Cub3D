@@ -6,33 +6,42 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:17 by neves             #+#    #+#             */
-/*   Updated: 2024/04/02 08:23:04 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:49:00 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
-void	check_line(char *line)
+char	*check_line(char *line)
 {
 	char	**str;
+	char	*result;
 
 	str = ft_split(line, ' ');
 	if (array_size(str) != 2)
 	{
+		result = NULL;
 		free_array(str);
 		free(line);
 		free_all(printf("Error\nWrong Floor/Ceiling config\n"));
 	}
 	else
+	{
+		result = ft_strdup(str[1]);
 		free_array(str);
+	}
+	return (result);
 }
 
 int	init_floor_ceiling(char *line)
 {
 	char	**color;
+	char	*str;
 
-	check_line(line);
-	color = ft_split(ft_strrchr(line, ' '), ',');
+	str = check_line(line);
+	color = ft_split(str, ',');
+	if (str)
+		free(str);
 	if (array_size(color) != 3 || !is_nbr(color[0]) \
 	|| !is_nbr(color[1]) || !is_nbr(color[2]) || vars()->map_cnt != 0)
 	{
@@ -60,7 +69,7 @@ void	init_texture(t_img *img, char *line)
 		mlx_destroy_image(vars()->win->mlx_ptr, img->img_ptr);
 	if (array_size(str) == 2)
 		img->img_ptr = mlx_xpm_file_to_image(vars()->win->mlx_ptr, \
-			line + 3, &img->w, &img->h);
+			str[1], &img->w, &img->h);
 	free_array(str);
 	if (!img->img_ptr || vars()->map_cnt != 0)
 	{

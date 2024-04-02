@@ -15,7 +15,7 @@ RED			=	\033[0;31m
 YELLOW	=	\033[0;33m
 END			=	\033[0m
 
-NAME		=	cub3d
+NAME		=	cub3D
 
 SRC_DIR = src
 OBJ_DIR =	obj
@@ -100,7 +100,7 @@ re:				fclean all
 v:				all
 					$(eval ORIGINAL_CFLAGS := $(CFLAGS))
 					$(eval override CFLAGS := $(filter-out -g -fsanitize=address,$(CFLAGS)))
-					valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3d
+					valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./cub3D
 					$(eval override CFLAGS := $(ORIGINAL_CFLAGS))
 
 .PHONY:		all clean fclean re

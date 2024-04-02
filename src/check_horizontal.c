@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:50:31 by neves             #+#    #+#             */
-/*   Updated: 2024/04/01 16:31:19 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:59:32 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	loop_horizontal(void)
 		dh = distance(vars()->player->x, vars()->player->y, \
 		vars()->rays.hx, vars()->rays.hy);
 		vars()->rays.dh = dh;
-		vars()->rays.dof = 8;
+		vars()->rays.dof = MAXSIZE;
 	}
 	else
 	{
@@ -61,6 +61,6 @@ void	check_horizontal(double ra)
 	init_horizontal(ra);
 	look_north_south(ra);
 	look_west_east(ra);
-	while (vars()->rays.dof < 8)
+	while (vars()->rays.dof < MAXSIZE)
 		loop_horizontal();
 }

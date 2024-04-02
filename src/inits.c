@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:07 by neves             #+#    #+#             */
-/*   Updated: 2024/04/02 08:15:52 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:12:29 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	init_vars(void)
 	static t_player		player;
 
 	vars()->gra = malloc(sizeof(t_gra));
+	if (!vars()->gra)
+		exit(printf("Error\nMalloc failed\n"));
 	vars()->gra->no.img_ptr = NULL;
 	vars()->gra->so.img_ptr = NULL;
 	vars()->gra->we.img_ptr = NULL;

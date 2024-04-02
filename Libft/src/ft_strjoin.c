@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 09:51:18 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:25:34 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:10:16 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	i = 0;
 	if (!(s1 || s2))
-		return (0);
+		return (NULL);
 	result = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!result)
-		return (0);
+		return (NULL);
 	j = 0;
 	while (s1[i])
 	{

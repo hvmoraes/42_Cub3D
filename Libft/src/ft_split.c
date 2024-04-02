@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:46:42 by hcorrea-          #+#    #+#             */
-/*   Updated: 2024/03/20 14:24:47 by neves            ###   ########.fr       */
+/*   Updated: 2024/04/02 13:09:56 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ char	*get_word(char *str, int start, int end)
 
 	i = 0;
 	result = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (!result || !str)
+		return (NULL);
 	while (start < end)
 	{
 		result[i] = str[start];
@@ -88,15 +90,3 @@ char	**ft_split(char const *str, char c)
 	result[j] = 0;
 	return (result);
 }
-
-/*int main()
-{
-	char *str = "Ola,tudo,bem?";
-	char sep = ',';
-	char **result = ft_split(str, sep);
-
-	printf("String original: %s.\nSeparador: '%c'.\n", str, sep);
-	for (int i = 0; i < count_words(str, sep); i++)
-		printf("String %i: %s.\n", i, result[i]);
-	free (result);
-}*/
