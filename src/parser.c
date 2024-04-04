@@ -6,7 +6,7 @@
 /*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:17 by neves             #+#    #+#             */
-/*   Updated: 2024/04/02 12:49:00 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/04 12:32:06 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,17 @@ void	line_parser(char *line)
 {
 	if (*line == '\n')
 		return ;
-	else if (!ft_strncmp(line, "NO", 2) && vars()->no_cnt++ < 1)
+	else if (!ft_strncmp(line, "NO ", 3) && vars()->no_cnt++ < 1)
 		init_texture(&vars()->gra->no, line);
-	else if (!ft_strncmp(line, "SO", 2) && vars()->so_cnt++ < 1)
+	else if (!ft_strncmp(line, "SO ", 3) && vars()->so_cnt++ < 1)
 		init_texture(&vars()->gra->so, line);
-	else if (!ft_strncmp(line, "WE", 2) && vars()->we_cnt++ < 1)
+	else if (!ft_strncmp(line, "WE ", 3) && vars()->we_cnt++ < 1)
 		init_texture(&vars()->gra->we, line);
-	else if (!ft_strncmp(line, "EA", 2) && vars()->ea_cnt++ < 1)
+	else if (!ft_strncmp(line, "EA ", 3) && vars()->ea_cnt++ < 1)
 		init_texture(&vars()->gra->ea, line);
-	else if (!ft_strncmp(line, "F", 1) && vars()->floor_cnt++ < 1)
+	else if (!ft_strncmp(line, "F ", 2) && vars()->floor_cnt++ < 1)
 		vars()->fcolor = init_floor_ceiling(line);
-	else if (!ft_strncmp(line, "C", 1) && vars()->ceiling_cnt++ < 1)
+	else if (!ft_strncmp(line, "C ", 2) && vars()->ceiling_cnt++ < 1)
 		vars()->ccolor = init_floor_ceiling(line);
 	else if (!(validate_string(line)) && !(check_string(line)))
 	{
