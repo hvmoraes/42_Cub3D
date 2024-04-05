@@ -21,7 +21,8 @@ SRC_DIR = src
 OBJ_DIR =	obj
 INC_DIR = inc
 
-SRC     =	$(shell find $(SRC_DIR) -name '*.c')
+SRC     =	src/check_horizontal.c src/check_map.c src/check_vertical.c src/colors.c src/direction.c src/draw_utils.c src/draw.c src/exit.c src/hook.c src/image.c\
+					src/inits.c src/main.c src/parser_utils.c src/parser_utils2.c src/parser.c src/utils.c	
 OBJ     =	$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
 CC			=	cc
