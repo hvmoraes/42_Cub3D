@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neves <neves@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:53:04 by neves             #+#    #+#             */
-/*   Updated: 2024/03/25 14:53:05 by neves            ###   ########.fr       */
+/*   Updated: 2024/04/07 21:44:14 by hcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,10 @@ t_win	init_window(int w, int h, char *str)
 	void	*mlx_ptr;
 
 	mlx_ptr = mlx_init();
+	if (!mlx_ptr)
+	{
+		free(vars()->gra);
+		exit(printf("Error\nmlx_init failed\n"));
+	}
 	return ((t_win){mlx_ptr, mlx_new_window(mlx_ptr, w, h, str), w, h});
 }
