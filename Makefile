@@ -34,7 +34,7 @@ MKDIR				=	mkdir -p
 MAKE				=	make -C
 ERRIGNORE		=	2>/dev/null
 
-LIBFT_DIR			=	Libft
+LIBFT_DIR			=	libft
 LIBFT_HEADER	=	$(LIBFT_DIR)/inc/libft.h
 LIBFT_LIB			=	libft.a
 LIBFT_FILE		:=	$(LIBFT_DIR)/$(LIBFT_LIB)

@@ -21,7 +21,7 @@
 # include <unistd.h>
 # include <string.h>
 # include "../mlx/mlx.h"
-# include "../Libft/inc/libft.h"
+# include "../libft/inc/libft.h"
 # include "structs.h"
 # include "defines.h"
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcorrea- <hcorrea-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roda-min <roda-min@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:52:36 by hcorrea-          #+#    #+#             */
-/*   Updated: 2023/01/13 10:26:50 by hcorrea-         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:17:26 by roda-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (result);
 }
-
-/*char	*ft_toupper2(char *str)
-{
-	char	*result;
-	for (int i = 0; str[i]; i++)
-	{
-		if (str[i] > 'a' && str[i] < 'z')
-			result[i] = str[i] - 32;
-	}
-	return (result);
-}
-	
-int	main()
-{
-	char	*str1 = "oi";
-	char	*str2;
-	t_list *list1 = ft_lstnew(str1);
-	t_list *list2 = ft_lstmap(list1, ft_toupper2, ft_lstdelone);
-	ft_putstr_fd(list2->content, 1);
-}*/
