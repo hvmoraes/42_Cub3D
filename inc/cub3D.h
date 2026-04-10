@@ -106,5 +106,12 @@ void	parser(char *file);
 t_var	*vars(void);
 int		check_images(void);
 double	distance(int ax, int ay, int bx, int by);
+void	init_trig_lut(void);
+double	lut_sin(double angle);
+double	lut_cos(double angle);
+double	lut_tan(double angle);
+
+// minimap.c
+void	draw_minimap(void);
 
 #endif

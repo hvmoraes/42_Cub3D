@@ -145,6 +145,9 @@ typedef struct s_var
 	int			dy;
 	int			sy;
 	int			err;
+	double		sin_lut[6284];
+	double		cos_lut[6284];
+	double		tan_lut[6284];
 }	t_var;
 
 #endif

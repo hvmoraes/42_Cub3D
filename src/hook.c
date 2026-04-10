@@ -19,8 +19,8 @@ void	handle_movement_we(int keycode)
 
 	if (keycode == KEY_W)
 	{
-		test_x = (vars()->player->x + vars()->player->delta_x * 10) / CUBESIZE;
-		test_y = (vars()->player->y + vars()->player->delta_y * 10) / CUBESIZE;
+		test_x = (vars()->player->x + vars()->player->delta_x * COLLISION_MARGIN) / CUBESIZE;
+		test_y = (vars()->player->y + vars()->player->delta_y * COLLISION_MARGIN) / CUBESIZE;
 		if (vars()->map[test_y][test_x] == 0)
 		{
 			vars()->player->x += vars()->player->delta_x;
@@ -29,8 +29,8 @@ void	handle_movement_we(int keycode)
 	}
 	if (keycode == KEY_S)
 	{
-		test_x = (vars()->player->x - vars()->player->delta_x * 10) / CUBESIZE;
-		test_y = (vars()->player->y - vars()->player->delta_y * 10) / CUBESIZE;
+		test_x = (vars()->player->x - vars()->player->delta_x * COLLISION_MARGIN) / CUBESIZE;
+		test_y = (vars()->player->y - vars()->player->delta_y * COLLISION_MARGIN) / CUBESIZE;
 		if (vars()->map[test_y][test_x] == 0)
 		{
 			vars()->player->y -= vars()->player->delta_y;
@@ -46,8 +46,8 @@ void	handle_movement_ns(int keycode)
 
 	if (keycode == KEY_D)
 	{
-		test_x = (vars()->player->x - vars()->player->delta_y * 10) / CUBESIZE;
-		test_y = (vars()->player->y + vars()->player->delta_x * 10) / CUBESIZE;
+		test_x = (vars()->player->x - vars()->player->delta_y * COLLISION_MARGIN) / CUBESIZE;
+		test_y = (vars()->player->y + vars()->player->delta_x * COLLISION_MARGIN) / CUBESIZE;
 		if (vars()->map[test_y][test_x] == 0)
 		{
 			vars()->player->x -= vars()->player->delta_y;
@@ -56,8 +56,8 @@ void	handle_movement_ns(int keycode)
 	}
 	if (keycode == KEY_A)
 	{
-		test_x = (vars()->player->x + vars()->player->delta_y * 10) / CUBESIZE;
-		test_y = (vars()->player->y - vars()->player->delta_x * 10) / CUBESIZE;
+		test_x = (vars()->player->x + vars()->player->delta_y * COLLISION_MARGIN) / CUBESIZE;
+		test_y = (vars()->player->y - vars()->player->delta_x * COLLISION_MARGIN) / CUBESIZE;
 		if (vars()->map[test_y][test_x] == 0)
 		{
 			vars()->player->x += vars()->player->delta_y;
@@ -70,19 +70,19 @@ void	handle_rotation(int keycode)
 {
 	if (keycode == RIGHT_KEY)
 	{
-		vars()->player->angle += 0.1;
+		vars()->player->angle += ROTATION_SPEED;
 		if (vars()->player->angle > 2 * PI)
 			vars()->player->angle -= 2 * PI;
-		vars()->player->delta_x = cos(vars()->player->angle) * 5;
-		vars()->player->delta_y = sin(vars()->player->angle) * 5;
+		vars()->player->delta_x = lut_cos(vars()->player->angle) * MOVE_SPEED;
+		vars()->player->delta_y = lut_sin(vars()->player->angle) * MOVE_SPEED;
 	}
 	else if (keycode == LEFT_KEY)
 	{
-		vars()->player->angle -= 0.1;
+		vars()->player->angle -= ROTATION_SPEED;
 		if (vars()->player->angle < 0)
 			vars()->player->angle += 2 * PI;
-		vars()->player->delta_x = cos(vars()->player->angle) * 5;
-		vars()->player->delta_y = sin(vars()->player->angle) * 5;
+		vars()->player->delta_x = lut_cos(vars()->player->angle) * MOVE_SPEED;
+		vars()->player->delta_y = lut_sin(vars()->player->angle) * MOVE_SPEED;
 	}
 }
 
@@ -107,6 +107,7 @@ int	render_hook(void)
 	pos2.color = vars()->fcolor;
 	draw_floor_ceiling(SCREENWIDTH, SCREENHEIGHT / 2, pos2);
 	rays();
+	draw_minimap();
 	mlx_put_image_to_window(vars()->win->mlx_ptr, vars()->win->win_ptr, \
 	vars()->gra->canvas.img_ptr, 0, 0);
 	return (0);

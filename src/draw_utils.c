@@ -19,7 +19,7 @@ void	draw_utils(void)
 		vars()->ca += 2 * PI;
 	if (vars()->ca > 2 * PI)
 		vars()->ca -= 2 * PI;
-	vars()->rays.dist = vars()->rays.dist * cos(vars()->ca);
+	vars()->rays.dist = vars()->rays.dist * lut_cos(vars()->ca);
 	vars()->line_h = (CUBESIZE * SCREENHEIGHT / vars()->rays.dist);
 	vars()->ty_step = CUBESIZE / vars()->line_h;
 	vars()->ty_off = 0;
@@ -42,7 +42,7 @@ void	wall_collision(void)
 		vars()->tx = (int)(vars()->rays.ry) % CUBESIZE;
 	else
 		vars()->tx = (int)(vars()->rays.rx) % CUBESIZE;
-	vars()->rays.dh *= cos(vars()->ca);
+	vars()->rays.dh *= lut_cos(vars()->ca);
 	vars()->pix_size = 1;
 }
 

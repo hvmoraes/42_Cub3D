@@ -15,21 +15,24 @@
 void	init_vertical(double ra)
 {
 	vars()->rays.dof = 0;
-	vars()->rays.dv = 1000000;
+	vars()->rays.dv = RAY_MAX_DIST;
 	vars()->rays.vx = vars()->player->x;
 	vars()->rays.vy = vars()->player->y;
-	vars()->rays.ntan = -tan(ra);
+	vars()->rays.ntan = -lut_tan(ra);
 }
 
 void	vertical_utils(void)
 {
 	vars()->rays.mx = (int)(vars()->rays.rx) >> 6;
 	vars()->rays.my = (int)(vars()->rays.ry) >> 6;
-	vars()->rays.mp = vars()->rays.my * vars()->map_width + vars()->rays.mx;
 	if (vars()->rays.mx < 0 || vars()->rays.my < 0
-		|| vars()->rays.mx > vars()->map_width \
-		|| vars()->rays.my > vars()->map_height)
+		|| vars()->rays.mx >= vars()->map_width
+		|| vars()->rays.my >= vars()->map_height)
+	{
 		vars()->rays.mp = vars()->map_width * vars()->map_height;
+		return ;
+	}
+	vars()->rays.mp = vars()->rays.my * vars()->map_width + vars()->rays.mx;
 }
 
 void	loop_vertical(void)

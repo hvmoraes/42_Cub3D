@@ -16,7 +16,7 @@ void	look_north_south(double ra)
 {
 	if (ra > PI)
 	{
-		vars()->rays.ry = (((int)vars()->player->y >> 6) << 6) - 0.0001;
+		vars()->rays.ry = (((int)vars()->player->y >> 6) << 6) - RAY_OFFSET;
 		vars()->rays.yo = -CUBESIZE;
 	}
 	else
@@ -45,7 +45,7 @@ void	west_east(double ra)
 		vars()->rays.rx = (((int)vars()->player->x >> 6) << 6);
 	if (ra > P2 && ra < P3)
 	{
-		vars()->rays.rx -= 0.0001;
+		vars()->rays.rx -= RAY_OFFSET;
 		vars()->rays.xo = -CUBESIZE;
 	}
 	else

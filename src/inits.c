@@ -51,8 +51,8 @@ void	init_player(void)
 		vars()->player->angle = 0;
 	else if (vars()->player->orientation == 'W')
 		vars()->player->angle = PI;
-	vars()->player->delta_x = cos(vars()->player->angle) * 5;
-	vars()->player->delta_y = sin(vars()->player->angle) * 5;
+	vars()->player->delta_x = lut_cos(vars()->player->angle) * MOVE_SPEED;
+	vars()->player->delta_y = lut_sin(vars()->player->angle) * MOVE_SPEED;
 }
 
 void	init_vars(void)

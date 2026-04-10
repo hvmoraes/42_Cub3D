@@ -31,7 +31,7 @@ void	color_limits(int *red, int *green, int *blue)
 int	rgb_to_int(int red, int green, int blue)
 {
 	color_limits(&red, &green, &blue);
-	return (red << 16 | green << 8 | green << 8 | blue);
+	return (red << 16 | green << 8 | blue);
 }
 
 void	check_hit(void)

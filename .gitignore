@@ -1,0 +1,16 @@
+cub3D
+obj/
+*.o
+*.d
+norminette_output.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

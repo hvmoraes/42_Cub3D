@@ -34,4 +34,20 @@
 # define PLAYERSIZE 8
 # define CUBESIZE 64
 
+# define RAY_MAX_DIST 1000000
+# define ROTATION_SPEED 0.1
+# define MOVE_SPEED 5
+# define COLLISION_MARGIN 10
+# define RAY_OFFSET 0.0001
+
+# define LUT_SIZE 6284
+# define LUT_STEP 0.001
+
+# define MINIMAP_SCALE 6
+# define MINIMAP_PAD 10
+# define MINIMAP_PLAYER 0x00FF00
+# define MINIMAP_WALL 0x888888
+# define MINIMAP_FLOOR 0x222222
+# define MINIMAP_RAY 0xFF0000
+
 #endif

@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		vars()->dr = ((FOV / (double)(SCREENWIDTH)) * (PI / 180));
+		init_trig_lut();
 		inits(argv[1]);
 		hooks(*vars()->win);
 		return (0);
